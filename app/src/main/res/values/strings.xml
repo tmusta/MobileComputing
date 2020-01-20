@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MobileComputing</string>
+    <string name="title_activity_time">TimeActivity</string>
+
+    <string name="title_activity_map">MapActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="button">Button1</string>
+    <string name="button5">Button2</string>
+    <string name="button6">Button3</string>
 </resources>
