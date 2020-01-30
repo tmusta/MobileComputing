@@ -1,5 +1,6 @@
 package com.example.mobilecomputing
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -11,24 +12,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activity_main1)
+        /*
+        val button: android.widget.Button = findViewById(R.id.fab)
+        // Register the onClick listener with the implementation above
+        button.setOnClickListener {
 
-        val button: android.widget.Button = findViewById(R.id.button)
+        }*/
+        //val button2: android.widget.Button = findViewById(R.id.fab_time)
         // Register the onClick listener with the implementation above
-        button.setOnClickListener { Toast.makeText(this@MainActivity,
-            "You clicked first button",
-            Toast.LENGTH_SHORT).show()
+        fab_time.setOnClickListener {
+            val intent = Intent(applicationContext, TimeActivity::class.java)
+            startActivity(intent)
         }
-        val button2: android.widget.Button = findViewById(R.id.button2)
+        //val button3: android.widget.Button = findViewById(R.id.fab_map)
         // Register the onClick listener with the implementation above
-        button2.setOnClickListener { Toast.makeText(this@MainActivity,
-            "You clicked second button",
-            Toast.LENGTH_SHORT).show()
-        }
-        val button3: android.widget.Button = findViewById(R.id.button3)
-        // Register the onClick listener with the implementation above
-        button3.setOnClickListener { Toast.makeText(this@MainActivity,
-            "You clicked third button",
-            Toast.LENGTH_SHORT).show()
+        fab_map.setOnClickListener {
+            val intent = Intent(applicationContext, MapActivity::class.java)
+            startActivity(intent)
         }
         }
 }
