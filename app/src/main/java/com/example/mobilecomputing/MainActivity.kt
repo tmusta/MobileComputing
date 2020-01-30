@@ -18,6 +18,20 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener {
 
         }*/
+        var fabOpened = false
+        fab.setOnClickListener {
+            if (!fabOpened) {
+                fabOpened = true
+                fab_map.animate().alpha(1f)
+                fab_time.animate().alpha(1f)
+            }
+            else {
+                fabOpened = false
+                fab_map.animate().alpha(0f)
+                fab_time.animate().alpha(0f)
+            }
+
+        }
         //val button2: android.widget.Button = findViewById(R.id.fab_time)
         // Register the onClick listener with the implementation above
         fab_time.setOnClickListener {
@@ -30,5 +44,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, MapActivity::class.java)
             startActivity(intent)
         }
-        }
+
+        val data = arrayOf("text1", "text2", "text3")
+        val rAdapter = RemindAdapter(applicationContext, data)
+        list.adapter = rAdapter
+
+    }
 }
