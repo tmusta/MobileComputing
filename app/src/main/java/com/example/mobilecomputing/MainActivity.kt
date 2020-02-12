@@ -6,6 +6,10 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import com.example.mobilecomputing.R.layout.activity_main as activity_main1
 import android.widget.Toast
+import androidx.room.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.toast
+import org.jetbrains.anko.uiThread
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener {
 
         }*/
+
         var fabOpened = false
         fab.setOnClickListener {
             if (!fabOpened) {
@@ -45,9 +50,34 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val data = arrayOf("text1", "text2", "text3")
-        val rAdapter = RemindAdapter(applicationContext, data)
-        list.adapter = rAdapter
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshlist()
+
+
+    }
+    private fun refreshlist() {
+
+        doAsync {
+
+            val db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "reminder").build()
+            val reminders = db.reminderDao().getReminders()
+            db.close()
+            uiThread {
+
+                if (reminders.isNotEmpty()) {
+
+                    val adapter = RemindAdapter(applicationContext, reminders)
+                    list.adapter = adapter
+                } else {
+                    toast("No reminders")
+                }
+
+
+            }
+        }
     }
 }
