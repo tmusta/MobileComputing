@@ -1,6 +1,8 @@
 package com.example.mobilecomputing
 
 import android.content.Context
+import android.location.Address
+import android.location.Geocoder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,7 +30,8 @@ class RemindAdapter(context: Context, private val list: List<Remind>) : BaseAdap
 
         }
         else {
-            row.itemTrigger.text = "location"
+            val location = list[position].location
+            row.itemTrigger.text = location
 
         }
         return row

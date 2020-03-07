@@ -28,8 +28,8 @@ class TimeActivity : AppCompatActivity() {
                 datePicker.year,
                 datePicker.month,
                 datePicker.dayOfMonth,
-                timePicker.currentHour,
-                timePicker.currentMinute
+                timePicker.hour,
+                timePicker.minute
             )
             if ((at_message.text.toString() != "") &&
                     (calendar.timeInMillis > System.currentTimeMillis())) {

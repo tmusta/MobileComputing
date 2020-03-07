@@ -9,10 +9,13 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
+    lintOptions {
+        checkReleaseBuilds false
+    }
     defaultConfig {
         applicationId "com.example.mobilecomputing"
-        minSdkVersion 23
-        targetSdkVersion 26
+        minSdkVersion 29
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -42,6 +45,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'org.jetbrains.anko:anko-common:0.9'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
